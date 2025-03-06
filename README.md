@@ -11,12 +11,12 @@ Aquí se muestran algunas capturas de pantalla del proyecto primero parte de la 
 
 ## Evidencias de Simulaciones o pruebas
 
-Aquí la verdad den cierto momento me atore y como es muy dificil estar checando la terminal para ver donde esta a falla acudi a postman.
+Aquí la verdad en cierto momento me atore y como es muy dificil estar checando la terminal para ver donde esta a falla acudi a postman.
 ![Captura de Pantalla 3](./capturas/Pruebas.png)
 
 ### Bases de datos
 
-Realemnete entre cada intento termine creando muchos conflictos con otras bases jeje, pero aqui acturas del xampp.
+Realmnete entre cada intento termine creando muchos conflictos con otras bases jeje, pero aqui estan las capturas del xampp.
 ![Captura de Pantalla 4](./capturas/bases.png)
 ![Captura de Pantalla 5](./capturas/bases2.png)
 
