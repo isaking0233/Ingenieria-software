@@ -11,7 +11,7 @@ Aquí se muestran algunas capturas de pantalla del proyecto, primero parte de la
 
 ## Evidencias de Simulaciones o pruebas
 
-Aquí la verdad en cierto momento me atore y como es muy dificil estar checando la terminal para ver donde esta a falla acudi a postman.
+Aquí la verdad en cierto momento me atore y como es muy dificil estar checando la terminal para ver donde esta la falla acudi a postman.
 ![Captura de Pantalla 3](./capturas/Pruebas.png)
 
 ### Bases de datos
