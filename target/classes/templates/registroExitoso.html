@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro Exitoso</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #000000; /* Fondo oscuro para resaltar las estrellas */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-image: url('https://www.pixel4k.com/wp-content/uploads/2018/10/dark-black-sand-texture-8k_1539371242.jpg'); /* Imagen de cielo estrellado */
+            background-size: cover;
+            background-position: center;
+            color: white;
+        }
+
+        .container {
+            background-color: rgba(151, 7, 213, 0.5); /* Fondo translúcido */
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 12px 24px rgba(151, 7, 213, 0.5); /* Sombra más profunda */
+            color: white;
+            text-align: center;
+            font-family: 'Roboto', sans-serif; /* Fuente moderna */
+        }
+
+        h1 {
+            margin-bottom: 30px;
+            font-size: 32px;
+            font-weight: 700;
+            color: #fff;
+        }
+
+        p {
+            font-size: 18px;
+            color: #f0f0f0;
+        }
+
+        a {
+            color: #ffffff;
+            text-decoration: none;
+            display: block;
+            margin-top: 20px;
+            font-size: 18px;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Registro exitoso</h1>
+        <p>¡Te has registrado correctamente! Aquí están tus datos:</p>
+        <p><strong>Nombre:</strong> <span th:text="${usuario.nombre}"></span></p>
+        <p><strong>Email:</strong> <span th:text="${usuario.email}"></span></p>
+        <a href="/login">Ir a login</a>
+    </div>
+</body>
+</html>
