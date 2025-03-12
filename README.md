@@ -4,7 +4,7 @@ Este es un proyecto que permite simular un loggin, sistema de roles y ademas las
 
 ## Capturas de Pantalla
 
-Aquí se muestran algunas capturas de pantalla del proyecto primero parte de la inicalizacion y programacion de funciones.
+Aquí se muestran algunas capturas de pantalla del proyecto, primero parte de la inicalizacion y programacion de funciones.
 
 ![Captura de Pantalla 1](./capturas/Crear.png)
 ![Captura de Pantalla 2](./capturas/Programar.png)
@@ -16,7 +16,7 @@ Aquí la verdad en cierto momento me atore y como es muy dificil estar checando 
 
 ### Bases de datos
 
-Realmnete entre cada intento termine creando muchos conflictos con otras bases jeje, pero aqui estan las capturas del xampp.
+Realmente entre cada intento termine creando muchos conflictos con otras bases jeje, pero aqui estan las capturas del xampp.
 ![Captura de Pantalla 4](./capturas/bases.png)
 ![Captura de Pantalla 5](./capturas/bases2.png)
 
