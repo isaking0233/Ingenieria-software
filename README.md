@@ -26,12 +26,32 @@ No crei necesario añadir las vistas de diseños previos ya que si eso fuera, nu
 ![Captura de Pantalla 5](./capturas/vista1.png)
 ![Captura de Pantalla 6](./capturas/vista2.png)
 ![Captura de Pantalla 7](./capturas/vista3.png)
-![Captura de Pantalla 8](./capturas/vista4.png)
-![Captura de Pantalla 9](./capturas/vista5.png)
 ![Captura de Pantalla 10](./capturas/vista6.png)
+### Se añaden correciones y funciones extra
+Empezamos con la implementacion de un boron que nos permite cambiar entre tema claro y tema oscuro
+![Captura de Pantalla 10](./capturas/claro.png)
+![Captura de Pantalla 10](./capturas/oscuro.png)
+
+Ademas de corregir fallas como la imposibiladad para subir imagenes de perfil
+se tuvo que cambiar en el controlador de perfil la manera en la que se interpretaba la imagen
+![Captura de Pantalla 10](./capturas/vista5.png)
+![Captura de Pantalla 10](./capturas/perfil.png)
+
+Tambien se arreglan fallas en el administrador, ya que el controlador de adminuser, no guardaba correctamente
+los roles en database provocando multiples dificultades, ahora se puede modificar y gestionar los roles sin
+problemas
+![Captura de Pantalla 10](./capturas/administrar.png)
+![Captura de Pantalla 10](./capturas/editar.png)
+
+Finamente se muestra la funcion de reecomendacion funcionando 
+![Captura de Pantalla 10](./capturas/recomendar.png)
+
 
 ## Evidencia de dockerizacion
 ![Captura de Pantalla 10](./capturas/docker.png)
+
+## Evidencia de pruebas con MySQL Workbench
+![Captura de Pantalla 10](./capturas/workb.png)
 
 1. Clona este repositorio:
    ```bash
