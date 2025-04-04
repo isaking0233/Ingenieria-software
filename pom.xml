@@ -89,6 +89,12 @@
     		<artifactId>lombok</artifactId>
     		<scope>provided</scope>
 		</dependency>
+		<!-- SpringSecurity -->
+		<dependency>
+    		<groupId>org.thymeleaf.extras</groupId>
+    		<artifactId>thymeleaf-extras-springsecurity6</artifactId>
+		</dependency>
+
 
 		<!-- Bootstrap (WebJars) -->
 		<dependency>

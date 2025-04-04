@@ -15,7 +15,7 @@ public class AdminController {
 
         if (authentication.getAuthorities().contains(new SimpleGrantedAuthority("ROLE_ADMIN"))) {
             System.out.println("Acceso concedido: Usuario es admin");
-            return "admin";  // Vista para administrador
+            return "redirect:/admin/usuarios";  // Vista para administrador
         } else {
             System.out.println("Acceso denegado: Usuario no es admin");
             return "accessDenied";  // Vista si no es admin

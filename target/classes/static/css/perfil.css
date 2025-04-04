@@ -11,7 +11,7 @@ body {
 }
 
 .header {
-    background-color: #1a237e;
+    background-color: #5e35b1;
     color: white;
     width: 100%;
     padding: 1rem 0;
@@ -69,7 +69,7 @@ h1, h2 {
     position: absolute;
     bottom: 0;
     right: 0;
-    background-color: #3f51b5;
+    background-color: #7e57c2;
     color: white;
     width: 40px;
     height: 40px;
@@ -110,12 +110,12 @@ h1, h2 {
 }
 
 .tab:hover {
-    color: #3f51b5;
+    color: #5e35b1;
 }
 
 .tab.active {
-    border-bottom: 2px solid #3f51b5;
-    color: #3f51b5;
+    border-bottom: 2px solid #7e57c2;
+    color: #5e35b1;
 }
 
 .tab-content {
@@ -155,7 +155,7 @@ h1, h2 {
 
 .form-group input:focus {
     outline: none;
-    border-color: #3f51b5;
+    border-color: #5e35b1;
     box-shadow: 0 0 0 2px rgba(63, 81, 181, 0.2);
 }
 
@@ -187,12 +187,12 @@ h1, h2 {
 }
 
 .btn-primary {
-    background-color: #3f51b5;
+    background-color: #c825ce;
     color: white;
 }
 
 .btn-primary:hover {
-    background-color: #303f9f;
+    background-color: #a95fe2;
 }
 
 .btn-secondary {

@@ -1,5 +1,6 @@
 mx\ipn\escom\logginspring\auth\controller\RegistroController.class
 mx\ipn\escom\logginspring\auth\controller\AdminController.class
+mx\ipn\escom\logginspring\auth\config\DataInitializer.class
 mx\ipn\escom\logginspring\auth\controller\LoginCredentials.class
 mx\ipn\escom\logginspring\auth\service\UsuarioService.class
 mx\ipn\escom\logginspring\auth\controller\PerfilController.class

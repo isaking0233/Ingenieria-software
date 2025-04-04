@@ -4,131 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mi Perfil</title>
-    <link rel="stylesheet" href="/css/perfil.css">
-    <style>
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: #121212; /* Fondo negro */
-            margin: 0;
-            padding: 0;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            min-height: 100vh;
-            color: white;
-        }
-
-        .header {
-            background-color: #7e57c2; /* Morado */
-            color: white;
-            width: 100%;
-            padding: 1rem 0;
-            text-align: center;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
-        }
-
-        .container {
-            background-color: #212121; /* Gris oscuro para el contenedor */
-            border-radius: 12px; /* Bordes redondeados */
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-            padding: 2rem;
-            margin-top: 3rem;
-            width: 80%;
-            max-width: 600px;
-            text-align: center;
-        }
-
-        h1, h2 {
-            margin-bottom: 0.5rem;
-            color: #fff; /* Blanco */
-        }
-
-        .profile-name, .profile-email {
-            color: #bbb; /* Gris claro */
-        }
-
-        .tabs {
-            display: flex;
-            justify-content: space-evenly;
-            margin-top: 2rem;
-        }
-
-        .tab {
-            background-color: #333; /* Gris oscuro para las tabs */
-            padding: 1rem;
-            border-radius: 6px;
-            cursor: pointer;
-            font-weight: bold;
-        }
-
-        .tab:hover, .tab.active {
-            background-color: #7e57c2; /* Morado para la tab activa o al pasar el mouse */
-        }
-
-        .form-group label {
-            color: #bbb; /* Gris claro */
-        }
-
-        .form-group input {
-            background-color: #333; /* Fondo oscuro para los campos */
-            color: white;
-            padding: 0.8rem;
-            border-radius: 6px;
-            border: 1px solid #444; /* Gris oscuro para bordes */
-            width: 100%;
-            margin-top: 0.5rem;
-        }
-
-        .form-group input:focus {
-            border-color: #7e57c2; /* Morado cuando se selecciona */
-            outline: none;
-        }
-
-        .buttons {
-            margin-top: 2rem;
-        }
-
-        .btn {
-            padding: 1rem 2rem;
-            background-color: #7e57c2; /* Morado */
-            color: white;
-            border: none;
-            border-radius: 25px; /* Bordes semirredondeados */
-            cursor: pointer;
-            transition: background-color 0.3s;
-            text-decoration: none;
-        }
-
-        .btn:hover {
-            background-color: #5e35b1; /* Morado más oscuro */
-        }
-
-        .btn-secondary {
-            background-color: #424242; /* Gris oscuro */
-        }
-
-        .btn-secondary:hover {
-            background-color: #616161; /* Gris más claro */
-        }
-
-        .mensaje {
-            margin-top: 2rem;
-            padding: 1rem;
-            border-radius: 6px;
-        }
-
-        .mensaje-exito {
-            background-color: #4caf50; /* Verde para éxito */
-        }
-
-        .mensaje-error {
-            background-color: #f44336; /* Rojo para error */
-        }
-    </style>
+    <link rel="stylesheet" href="/css/home.css">
+    <link rel="stylesheet" href="/css/perfil.css"> <!-- Si ya tienes uno personalizado -->
 </head>
-<body>
+<body id="mainBody">
     <div class="header">
         <h1>Rǝco-BoOk</h1>
+        <button id="themeToggle" class="theme-toggle">🌙</button>
     </div>
 
     <div class="container">
@@ -136,79 +18,63 @@
 
         <div class="profile-header">
             <div class="profile-image">
-                <!-- Si el usuario tiene imagen, mostrarla -->
-                <img th:if="${tieneImagen}" th:src="@{'/usuario/imagen/' + ${usuario.id}}" id="profileImage" alt="Foto de perfil" />
-                <!-- Si no tiene imagen, mostrar icono por defecto -->
+                <img th:if="${tieneImagen}" th:src="@{'/usuario/imagen/' + ${usuario.id}}" alt="Foto de perfil" />
                 <span th:unless="${tieneImagen}">👤</span>
-
-                <!-- Botón para cambiar la imagen -->
-                <label for="fileInput" class="profile-image-upload">+</label>
-                <input type="file" id="fileInput" accept="image/*" class="hidden" />
             </div>
             <p class="profile-name" th:text="${usuario.nombre}">Usuario</p>
             <p class="profile-email" th:text="${usuario.email}">usuario@ejemplo.com</p>
         </div>
 
-        <!-- Tabs para separar las secciones -->
         <div class="tabs">
             <div class="tab" data-tab="info">Información Personal</div>
             <div class="tab" data-tab="password">Cambiar Contraseña</div>
             <div class="tab" data-tab="image">Cambiar Imagen</div>
         </div>
 
-        <!-- Tab de Información Personal -->
         <div id="infoTab" class="tab-content">
             <form action="/perfil/actualizar-info" method="post">
                 <div class="form-group">
                     <label for="nombre">Nombre</label>
-                    <input type="text" id="nombre" name="nombre" th:value="${usuario.nombre}" placeholder="Tu nombre" required />
+                    <input type="text" id="nombre" name="nombre" th:value="${usuario.nombre}" required />
                 </div>
-
                 <div class="form-group">
-                    <label for="email">Email</label>
-                    <input type="email" id="email" name="email" th:value="${usuario.email}" placeholder="Tu email" required />
+                    <label for="email">Correo</label>
+                    <input type="email" id="email" name="email" th:value="${usuario.email}" required />
                 </div>
-
                 <div class="buttons">
                     <a href="/home" class="btn btn-secondary">Volver</a>
-                    <button type="submit" class="btn">Actualizar Información</button>
+                    <button type="submit" class="btn">Guardar</button>
                 </div>
             </form>
         </div>
 
-        <!-- Tab de Cambiar Contraseña -->
         <div id="passwordTab" class="tab-content">
             <form action="/perfil/actualizar-password" method="post">
                 <div class="form-group">
-                    <label for="password">Nueva Contraseña</label>
-                    <input type="password" id="password" name="password" placeholder="Ingresa tu nueva contraseña" required />
+                    <label>Nueva Contraseña</label>
+                    <input type="password" name="password" required />
                 </div>
-
                 <div class="form-group">
-                    <label for="confirmPassword">Confirmar Contraseña</label>
-                    <input type="password" id="confirmPassword" name="confirmPassword" placeholder="Confirma tu nueva contraseña" required />
+                    <label>Confirmar Contraseña</label>
+                    <input type="password" name="confirmPassword" required />
                 </div>
-
                 <div class="form-group">
-                    <label for="currentPassword">Contraseña Actual</label>
-                    <input type="password" id="currentPassword" name="currentPassword" placeholder="Ingresa tu contraseña actual" required />
+                    <label>Contraseña Actual</label>
+                    <input type="password" name="currentPassword" required />
                 </div>
-
                 <div class="buttons">
                     <a href="/home" class="btn btn-secondary">Volver</a>
-                    <button type="submit" class="btn">Guardar Cambios</button>
+                    <button type="submit" class="btn">Guardar Contraseña</button>
                 </div>
             </form>
         </div>
 
-        <!-- Tab de Cambiar Imagen -->
         <div id="imageTab" class="tab-content">
             <form action="/perfil/actualizar-imagen" method="post" enctype="multipart/form-data">
                 <div class="form-group">
-                    <label for="imagenPerfil">Selecciona una nueva imagen de perfil</label>
-                    <input type="file" id="imagenPerfil" name="imagen" accept="image/*" required />
+                    <label>Subir nueva imagen</label>
+                    <input type="file" name="imagen" accept="image/*" required />
                 </div>
-
                 <div class="buttons">
                     <a href="/home" class="btn btn-secondary">Volver</a>
                     <button type="submit" class="btn">Subir Imagen</button>
@@ -216,33 +82,45 @@
             </form>
         </div>
 
-        <!-- Mensaje de resultado -->
-        <div th:if="${mensaje}" class="mensaje" th:classappend="${tipoMensaje == 'error'} ? 'mensaje-error' : 'mensaje-exito'" th:text="${mensaje}">
+        <div th:if="${mensaje}" class="mensaje"
+             th:classappend="${tipoMensaje == 'error'} ? 'mensaje-error' : 'mensaje-exito'"
+             th:text="${mensaje}">
         </div>
     </div>
 
     <script>
+        // Tabs
         document.addEventListener('DOMContentLoaded', function() {
-            // Configurar la primera tab como activa por defecto
-            document.querySelector('.tab[data-tab="info"]').classList.add('active');
-            document.getElementById('infoTab').classList.add('active');
-            
-            // Cambio de tabs
             const tabs = document.querySelectorAll('.tab');
-            const tabContents = document.querySelectorAll('.tab-content');
-            
+            const contents = document.querySelectorAll('.tab-content');
+
             tabs.forEach(tab => {
-                tab.addEventListener('click', function() {
-                    // Quitar clases active
+                tab.addEventListener('click', () => {
                     tabs.forEach(t => t.classList.remove('active'));
-                    tabContents.forEach(content => content.classList.remove('active'));
-                    
-                    // Añadir clase active al tab clickeado y su contenido
-                    this.classList.add('active');
-                    const tabId = this.getAttribute('data-tab');
-                    document.getElementById(tabId + 'Tab').classList.add('active');
+                    contents.forEach(c => c.classList.remove('active'));
+                    tab.classList.add('active');
+                    document.getElementById(tab.getAttribute('data-tab') + 'Tab').classList.add('active');
                 });
             });
+
+            tabs[0]?.click(); // Activar la primera por defecto
+        });
+
+        // Tema claro/oscuro
+        const body = document.getElementById('mainBody');
+        const toggle = document.getElementById('themeToggle');
+
+        const theme = localStorage.getItem('theme');
+        if (theme === 'dark') {
+            body.classList.add('dark-theme');
+            toggle.textContent = '☀️';
+        }
+
+        toggle.addEventListener('click', () => {
+            body.classList.toggle('dark-theme');
+            const isDark = body.classList.contains('dark-theme');
+            toggle.textContent = isDark ? '☀️' : '🌙';
+            localStorage.setItem('theme', isDark ? 'dark' : 'light');
         });
     </script>
 </body>

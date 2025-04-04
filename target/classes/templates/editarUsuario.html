@@ -1,50 +1,174 @@
 <!DOCTYPE html>
 <html lang="es" xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title th:text="${usuario.id == null} ? 'Nuevo Usuario' : 'Editar Usuario'">Editar Usuario</title>
-    <style>
-        body {
-            font-family: 'Arial', sans-serif;
-            background-color: #121212;
-            color: white;
-            text-align: center;
-        }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title th:text="${usuario.id == null} ? 'Nuevo Usuario' : 'Editar Usuario'">Editar Usuario</title>
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      background-color: #f5f5f5;
+      color: #222;
+      text-align: center;
+      margin: 0;
+      padding: 0;
+    }
 
-        .header {
-            background-color: #7e57c2;
-            padding: 20px;
-        }
+    .dark-theme {
+      background-color: #121212;
+      color: white;
+    }
 
-        .container {
-            background-color: #212121;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
-        }
+    .header {
+      background-color: #7e57c2;
+      padding: 20px;
+      position: relative;
+      color: white;
+    }
 
-        .btn {
-            padding: 10px 20px;
-            background-color: #7e57c2;
-            color: white;
-            text-decoration: none;
-            border-radius: 5px;
-        }
+    .theme-toggle {
+      position: absolute;
+      top: 15px;
+      right: 20px;
+      background: none;
+      border: none;
+      font-size: 1.5rem;
+      cursor: pointer;
+      color: white;
+    }
 
-        .btn:hover {
-            background-color: #5e35b1;
-        }
-    </style>
+    .container {
+      background-color: #fff;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+      max-width: 600px;
+      margin: 40px auto;
+    }
+
+    .dark-theme .container {
+      background-color: #212121;
+      color: white;
+    }
+
+    .form-group {
+      margin-bottom: 15px;
+      text-align: left;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 5px;
+    }
+
+    input[type="text"],
+    input[type="email"],
+    input[type="password"] {
+      width: 100%;
+      padding: 10px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+      background-color: #fff;
+      color: #222;
+    }
+
+    .dark-theme input[type="text"],
+    .dark-theme input[type="email"],
+    .dark-theme input[type="password"] {
+      background-color: #333;
+      color: white;
+      border-color: #444;
+    }
+
+    .roles-container {
+      text-align: left;
+      margin-top: 10px;
+    }
+
+    .btn {
+      padding: 10px 20px;
+      background-color: #7e57c2;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      margin-top: 20px;
+      cursor: pointer;
+    }
+
+    .btn:hover {
+      background-color: #5e35b1;
+    }
+
+    .back-link {
+      display: block;
+      margin-top: 20px;
+      color: #666;
+      text-decoration: none;
+    }
+
+    .back-link:hover {
+      text-decoration: underline;
+    }
+  </style>
 </head>
-<body>
-    <div class="header">
-        <h1>Sistema de Recomendaciones</h1>
-        <p>Panel de Administración</p>
+<body id="mainBody">
+<div class="header">
+  <h1>Sistema de Recomendaciones</h1>
+  <p th:text="${usuario.id == null} ? 'Nuevo Usuario' : 'Editar Usuario'">Editar Usuario</p>
+  <button id="themeToggle" class="theme-toggle">🌙</button>
+</div>
+
+<div class="container">
+  <form th:action="@{/admin/usuarios/guardar}" method="post" th:object="${usuario}">
+    <input type="hidden" th:field="*{id}" />
+
+    <div class="form-group">
+      <label for="nombre">Nombre:</label>
+      <input type="text" th:field="*{nombre}" required />
     </div>
 
-    <div class="container">
-        <h2 th:text="${usuario.id == null} ? 'Nuevo Usuario' : 'Editar Usuario'">Editar Usuario</h2>
+    <div class="form-group">
+      <label for="email">Correo electrónico:</label>
+      <input type="email" th:field="*{email}" required />
     </div>
+
+    <div class="form-group">
+      <label for="password">Contraseña:</label>
+      <input type="password" name="password" placeholder="Deja vacío para no cambiarla" />
+    </div>
+
+    <div class="form-group">
+      <label>Roles:</label>
+      <div class="roles-container" th:each="rol : ${todosLosRoles}">
+        <input type="checkbox" name="roles"
+               th:value="${rol.id}"
+               th:checked="${usuario.roles.contains(rol)}" />
+        <span th:text="${rol.nombre}">Rol</span><br/>
+      </div>
+    </div>
+
+    <button type="submit" class="btn">Guardar</button>
+  </form>
+
+  <a href="/admin/usuarios" class="back-link">Volver a la lista de usuarios</a>
+</div>
+
+<script>
+  const body = document.getElementById('mainBody');
+  const toggle = document.getElementById('themeToggle');
+
+  const theme = localStorage.getItem('theme');
+  if (theme === 'dark') {
+    body.classList.add('dark-theme');
+    toggle.textContent = '☀️';
+  }
+
+  toggle.addEventListener('click', () => {
+    body.classList.toggle('dark-theme');
+    const isDark = body.classList.contains('dark-theme');
+    toggle.textContent = isDark ? '☀️' : '🌙';
+    localStorage.setItem('theme', isDark ? 'dark' : 'light');
+  });
+</script>
 </body>
 </html>

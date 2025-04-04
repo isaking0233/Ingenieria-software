@@ -52,23 +52,16 @@ public class PerfilController {
         return "perfil";
     }
 
-    @GetMapping("/usuario/imagen/{id}")
+    @GetMapping(value = "/usuario/imagen/{id}", produces = MediaType.IMAGE_JPEG_VALUE)
     @ResponseBody
-    public String obtenerImagen(@PathVariable Long id) {
+    public byte[] obtenerImagen(@PathVariable Long id) {
         Usuario usuario = usuarioRepository.findById(id).orElse(null);
-        
         if (usuario != null && usuario.getImagen() != null) {
-            try {
-                // Convertir la imagen BLOB a Base64 para mostrarla en HTML
-                byte[] imagenBytes = usuario.getImagen();
-                return Base64.getEncoder().encodeToString(imagenBytes);
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
+            return usuario.getImagen();
         }
-        
-        return "";
+        return new byte[0];
     }
+    
 
     @PostMapping("/perfil/actualizar-info")
     public String actualizarInfo(
