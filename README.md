@@ -41,7 +41,7 @@ Tambien se arreglan fallas en el administrador, ya que el controlador de adminus
 los roles en database provocando multiples dificultades, ahora se puede modificar y gestionar los roles sin
 problemas
 ![Captura de Pantalla 10](./capturas/administrar.png)
-![Captura de Pantalla 10](./capturas/editar.png)
+![Captura de Pantalla 10](./capturas/rol.png)
 
 Finamente se muestra la funcion de reecomendacion funcionando 
 ![Captura de Pantalla 10](./capturas/recomendar.png)
@@ -52,6 +52,8 @@ Finamente se muestra la funcion de reecomendacion funcionando
 
 ## Evidencia de pruebas con MySQL Workbench
 ![Captura de Pantalla 10](./capturas/workb.png)
+
+## IMPORTANTE: iniciar sesion con usuario "admin" y contraseña "admin" para ver interfaz de administrador
 
 1. Clona este repositorio:
    ```bash
