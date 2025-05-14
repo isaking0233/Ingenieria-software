@@ -58,3 +58,6 @@ Finamente se muestra la funcion de reecomendacion funcionando
 1. Clona este repositorio:
    ```bash
    git clone https://github.com/tuusuario/logginspring.git
+2. Pruebalo:
+   ```bash
+   docker-compose up --build
